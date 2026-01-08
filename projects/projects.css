@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: white;
+    color: #333;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+.navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.title {
+    margin: 30px 0 0 30px;
+    font-weight: bold;
+}
+.nav-links {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+.active {
+    border-bottom: 1px solid #333;
+}
+.nav-links a:hover {
+    color: #333;
+    border-bottom: 1px solid #333;
+}
+.nav-links input {
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
+
+/* projects = layout, it will host the rows */
+.projects {
+    margin-top: 30px;
+}
+
+/* Each row is a separate div, when closing an element, a new line is applied automatically, so the rows will stack as we want */
+.row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 300px; /* Height of the row */
+    align-items: center;
+}
+
+/* The other properties are applied automatically as well */
+.imgleft,
+.imgright {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    display: block;
+    /* we give the images full height and width of the columns they take up (as can be seen below) */
+}
+
+.imgleft {
+    grid-column: 1 / 4;
+}
+
+h3 {
+    grid-column: 4 / 6;
+    text-align: center;
+    font-weight: bold;
+}
+.imgright {
+    grid-column: 6 / -1;
+}
+
+
+footer {
+    position: fixed; 
+    bottom: 30px; 
+    left: 30px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+
+@media (max-width: 768px) {
+    .navigation {
+        flex-direction: column;
+        font-size: 0.9rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-links {
+        margin: 0;
+    }
+    .nav-links input {
+        max-width: 100px;
+    }
+    .title {
+        margin-bottom: 20px;
+    }
+    .row {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto; 
+        align-items: center;
+    }
+    .imgleft, .imgright {
+        width: 100%;      
+        height: auto;     
+        object-fit: cover; /* Problem on .imgright (appears much smaller on tablet) */
+    }
+}
+
+@media (max-width: 480px) { /* Same problem from above persists here */
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+    }
+    .active {
+        border-bottom: none;
+        border-right: 1px solid #333;
+    }
+}

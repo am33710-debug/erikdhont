@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: white;
+    color: #333;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+.navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.title {
+    margin: 30px 0 0 30px;
+    font-weight: bold;
+}
+.nav-links {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+.active {
+    border-bottom: 1px solid #333;
+}
+.nav-links a:hover {
+    color: #333;
+    border-bottom: 1px solid #333;
+}
+.nav-links input {
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
+
+
+.container1 {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    grid-template-rows: auto;
+}
+.item1-1, .item1-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.item1-1 {
+    grid-column: span 1; /* span is used to make the div span occupy x columns */
+    grid-row: 1 / span 2;
+}
+.item1-2 {
+    grid-column: span 2;
+    grid-row: 1 / span 2;
+}
+.img1 {
+    width: auto;
+    max-width: 600px;
+    height: auto;
+    max-height: 700px;
+}
+
+
+.container2 {
+    margin-top: 30px;
+    margin-right: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    grid-template-rows: auto;
+}
+.item2-1, .item2-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.item2-1 {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.item2-2 {
+    grid-column: 3;
+    grid-row: 3;
+}
+.img2 {
+    width: auto;
+    max-width: 600px;
+    height: auto;
+    max-height: 700px;
+}
+
+
+.container3 {
+    margin-top: 30px;
+    margin-right: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    grid-template-rows: auto;
+}
+.item3-1, .item3-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.item3-1 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.item3-2 {
+    grid-column: 3;
+    grid-row: 4;
+}
+.img3 {
+    width: auto;
+    max-width: 600px;
+    height: auto;
+    max-height: 700px;
+}
+
+
+footer {
+    position: fixed; 
+    bottom: 30px; 
+    left: 30px;
+    font-weight: bold;
+    z-index: 10;
+}
+/* Some minor adjustmnets may be needed to ensure exact replica of the site (and other parts) - display flex separately for the paragraphs, bigger fonts/padding/margin etc */
+
+@media (max-width: 768px) {
+    .navigation {
+        flex-direction: column;
+        font-size: 0.9rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-links {
+        margin: 0;
+    }
+    .nav-links input {
+        max-width: 100px;
+    }
+    .title {
+        margin-bottom: 20px;
+    }
+    .container1, .container2, .container3 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .item1-1, .item1-2, .item2-1, .item2-2, .item3-1, .item3-2 {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+    }
+    .active {
+        border-bottom: none;
+        border-right: 1px solid #333;
+    }
+    .container1, .container2, .container3 {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto;   
+        margin: 0 auto;             
+        gap: 20px;                  
+    }
+    .item1-1, .item1-2,
+    .item2-1, .item2-2,
+    .item3-1, .item3-2 {
+        grid-column: 1;
+        grid-row: auto;
+        width: 100%;                
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;        
+    }
+    .img1, .img2, .img3 {
+        width: 100%;               
+        max-width: 100%;           
+        height: auto;             
+    }
+}
